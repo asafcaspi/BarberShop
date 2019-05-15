@@ -6,19 +6,22 @@
       <el-button>lakohot UPDATE</el-button>
       <el-button type="primary">Primary</el-button>
     </el-row>
-    <Custable></Custable>
-    <CustomerMenu></CustomerMenu>
+    <Custable :data></Custable>
+    <CustomerMenu @save="saveData"></CustomerMenu>
   </div>
 </template>
 
 <script>
 import Custable from "@/components/Custable.vue";
 import CustomerMenu from "@/components/CustomerMenu.vue";
-
+import { customers } from "../data/data.js";
 export default {
   components: {
     Custable,
     CustomerMenu
+  },
+  methods: {
+    saveData(data) {}
   }
 };
 </script>
