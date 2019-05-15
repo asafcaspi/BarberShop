@@ -7,14 +7,18 @@
       <el-button type="primary">Primary</el-button>
     </el-row>
     <Custable></Custable>
+    <CustomerMenu></CustomerMenu>
   </div>
 </template>
 
 <script>
 import Custable from "@/components/Custable.vue";
+import CustomerMenu from "@/components/CustomerMenu.vue";
+
 export default {
   components: {
-    Custable
+    Custable,
+    CustomerMenu
   }
 };
 </script>
