@@ -16,7 +16,7 @@
     <div>
       <el-menu :default-active="activeIndex" mode="horizontal" @select="handleSelect" router="true">
         <el-menu-item index="home">דף הבית</el-menu-item>
-        <el-menu-item index="costumers">לקוחות</el-menu-item>
+        <el-menu-item index="customers">לקוחות</el-menu-item>
         <el-menu-item index="schdule">סידור עבודה</el-menu-item>
         <el-menu-item index="pays">כספים ותשלומים</el-menu-item>
       </el-menu>
