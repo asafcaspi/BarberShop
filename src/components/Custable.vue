@@ -1,9 +1,9 @@
 <template>
   <div>
-    <el-button type="primary">Add New Customer</el-button>
+    <el-button type="primary" @click="addNewCustomer(newCustomer)">Add New Customer</el-button>
 
     <el-table
-      :data="tableData.filter(data => !search || data.name.toLowerCase().includes(search.toLowerCase()))"
+      :data="customers.filter(data => !search || data.name.toLowerCase().includes(search.toLowerCase()))"
       style="width: 100%"
     >
       <el-table-column label="Date" prop="date"></el-table-column>
@@ -13,7 +13,7 @@
       <el-table-column label="CustomerID" prop="custId"></el-table-column>
 
       <el-table-column align="right">
-        <template slot="header" slot-scope="scope">
+        <template slot="header">
           <el-input v-model="search" size="mini" placeholder="Type to search"/>
         </template>
         <template slot-scope="scope">
@@ -26,43 +26,11 @@
 </template>
 
 <script>
+import { customers } from "../data/data";
 export default {
+  props: ["customers"],
   data() {
     return {
-      tableData: [
-        {
-          date: "2016-05-03",
-          firstName: "Tom",
-          lastName: "Caspi",
-          phoneNumb: "0585566288",
-          custId: "asda@asda.com",
-          address: "No. 189, Grove St, Los Angeles"
-        },
-        {
-          date: "2016-05-02",
-          firstName: "John",
-          lastName: "Caspi",
-          phoneNumb: "0585566288",
-          custId: "asda@asda.com",
-          address: "No. 189, Grove St, Los Angeles"
-        },
-        {
-          date: "2016-05-04",
-          firstName: "Morgan",
-          lastName: "Caspi",
-          phoneNumb: "0585566288",
-          custId: "asda@asda.com",
-          address: "No. 189, Grove St, Los Angeles"
-        },
-        {
-          date: "2016-05-01",
-          firstName: "Jessy",
-          lastName: "Caspi",
-          phoneNumb: "0585566288",
-          custId: "asda@asda.com",
-          address: "No. 189, Grove St, Los Angeles"
-        }
-      ],
       search: ""
     };
   },
@@ -72,7 +40,8 @@ export default {
     },
     handleDelete(index, row) {
       console.log(index, row);
-    }
+    },
+    addNewCustomer() {}
   }
 };
 </script>
