@@ -14,7 +14,7 @@
       </el-row>
     </div>
     <div>
-      <el-menu :default-active="activeIndex" mode="horizontal" @select="handleSelect" router="true">
+      <el-menu mode="horizontal" :router="true">
         <el-menu-item index="home">דף הבית</el-menu-item>
         <el-menu-item index="customers">לקוחות</el-menu-item>
         <el-menu-item index="schdule">סידור עבודה</el-menu-item>
@@ -33,9 +33,9 @@ export default {
 <style>
 .el-row {
   margin-bottom: 20px;
-  &:last-child {
+  /* &:last-child {
     margin-bottom: 0;
-  }
+  } */
 }
 .el-col {
   border-radius: 4px;
