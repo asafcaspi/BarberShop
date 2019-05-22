@@ -15,6 +15,7 @@
 import Custable from "@/components/Custable.vue";
 import CustomerMenu from "@/components/CustomerMenu.vue";
 import { customers } from "../data/data.js";
+
 export default {
   data() {
     return {
