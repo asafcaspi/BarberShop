@@ -5,7 +5,7 @@
 
     <el-input
       type="number"
-      placeholder="CusromerID"
+      placeholder="CustomerID"
       v-model="CustomeID"
       minlength="9"
       maxlength="10"
@@ -30,7 +30,11 @@
     ></el-switch>
     <el-date-picker v-model="DateOfBirth" type="date" placeholder="Date Of Birth"></el-date-picker>
     <br>
-    <el-button type="success" round @click="$emit('addNewCustomer',{name: CustomerName})">Save</el-button>
+    <el-button
+      type="success"
+      round
+      @click="$emit('addNewCustomer',{firstName: CustomerName, lastName: CustomerLastName, custId: CustomeID, phoneNumb:PhoneNumber,dateOfbirth:DateOfBirth,email:Email})"
+    >Save</el-button>
     <el-button type="danger" round>Cancel</el-button>
   </div>
 </template>
@@ -49,17 +53,7 @@ export default {
       Email: ""
     };
   },
-  methods: {
-    addNewCustomer(
-      CustomerName,
-      CustomerLastName,
-      PhoneNumber,
-      CustomeID,
-      Gender,
-      DateOfBirth,
-      Email
-    ) {}
-  }
+  methods: {}
 };
 </script>
 

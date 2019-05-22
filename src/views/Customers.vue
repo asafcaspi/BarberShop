@@ -7,7 +7,7 @@
       <el-button type="primary">Primary</el-button>
     </el-row>
     <Custable :customers="customers"></Custable>
-    <CustomerMenu @addNewCustomer="saveData(name)"></CustomerMenu>
+    <CustomerMenu @addNewCustomer="saveData"></CustomerMenu>
   </div>
 </template>
 
@@ -26,8 +26,8 @@ export default {
     CustomerMenu
   },
   methods: {
-    saveData(name) {
-      console.log(name);
+    saveData(obj) {
+      customers.push(obj);
     }
   }
 };

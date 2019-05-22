@@ -6,11 +6,12 @@
       :data="customers.filter(data => !search || data.name.toLowerCase().includes(search.toLowerCase()))"
       style="width: 100%"
     >
-      <el-table-column label="Date" prop="date"></el-table-column>
+      <el-table-column label="Date of birth" prop="dateOfbirth"></el-table-column>
       <el-table-column label="First Name" prop="firstName"></el-table-column>
       <el-table-column label="Last Name" prop="lastName"></el-table-column>
       <el-table-column label="Phone Number" prop="phoneNumb"></el-table-column>
       <el-table-column label="CustomerID" prop="custId"></el-table-column>
+      <el-table-column label="Email" prop="email"></el-table-column>
 
       <el-table-column align="right">
         <template slot="header">
