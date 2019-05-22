@@ -30,12 +30,17 @@
     ></el-switch>
     <el-date-picker v-model="DateOfBirth" type="date" placeholder="Date Of Birth"></el-date-picker>
     <br>
-    <el-button type="success" round>Save</el-button>
+    <el-button
+      type="success"
+      round
+      @click="addNewCustomer(CustomerName,CustomerLastName,PhoneNumber,CustomeID,Gender,DateOfBirth,Email)"
+    >Save</el-button>
     <el-button type="danger" round>Cancel</el-button>
   </div>
 </template>
 
 <script>
+import { METHODS } from "http";
 export default {
   data() {
     return {
@@ -47,6 +52,27 @@ export default {
       Gender: "",
       Email: ""
     };
+  },
+  methods: {
+    addNewCustomer(
+      CustomerName,
+      CustomerLastName,
+      PhoneNumber,
+      CustomeID,
+      Gender,
+      DateOfBirth,
+      Email
+    ) {
+      console.log(
+        CustomerName,
+        CustomerLastName,
+        PhoneNumber,
+        CustomeID,
+        Gender,
+        DateOfBirth,
+        Email
+      );
+    }
   }
 };
 </script>

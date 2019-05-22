@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-button type="primary" @click="addNewCustomer(newCustomer)">Add New Customer</el-button>
+    <el-button type="primary">Add New Customer</el-button>
 
     <el-table
       :data="customers.filter(data => !search || data.name.toLowerCase().includes(search.toLowerCase()))"
@@ -40,8 +40,7 @@ export default {
     },
     handleDelete(index, row) {
       console.log(index, row);
-    },
-    addNewCustomer() {}
+    }
   }
 };
 </script>
