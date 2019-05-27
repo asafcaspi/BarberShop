@@ -6,43 +6,34 @@
       <el-button>lakohot UPDATE</el-button>
       <el-button type="primary">Primary</el-button>
     </el-row>
-    <el-button type="primary" @click="centerDialogVisible = true">Add New Customer</el-button>
+    <el-button type="primary" @click="showDialog = true">Add New Customer</el-button>
 
-    <el-dialog title="Add New Customer" :visible.sync="centerDialogVisible" width="30%" center>
-      <span>It should be noted that the content will not be aligned in center by default</span>
-      <span slot="footer" class="dialog-footer">
-        <el-button @click="centerDialogVisible = false">Cancel</el-button>
-        <el-button
-          type="primary"
-          @click="$emit('addNewCustomer',{firstName: CustomerName, lastName: CustomerLastName, custId: CustomeID, phoneNumb:PhoneNumber,dateOfbirth:DateOfBirth,email:Email})"
-        >Confirm</el-button>
-      </span>
-      <CustomerMenu @addNewCustomer="saveData"></CustomerMenu>
-    </el-dialog>
+    <CustomerDialog :show="showDialog" @confirm="addNewCustomer"></CustomerDialog>
+
     <Custable :customers="customers"></Custable>
   </div>
 </template>
 
 <script>
 import Custable from "@/components/Custable.vue";
-import CustomerMenu from "@/components/CustomerMenu.vue";
+import CustomerDialog from "@/components/CustomerDialog.vue";
 import { customers } from "../data/data.js";
 
 export default {
   data() {
     return {
       customers,
-      centerDialogVisible: false
+      showDialog: false
     };
   },
   components: {
     Custable,
-    CustomerMenu
+    CustomerDialog
   },
   methods: {
-    saveData(obj) {
+    addNewCustomer({ name, phone }) {
+      console.log(event);
       customers.push(obj);
-      centerDialogVisible = false;
     }
   }
 };

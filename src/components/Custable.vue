@@ -26,7 +26,7 @@
 
 <script>
 import { customers } from "../data/data";
-import CustomerMenu from "@/components/CustomerMenu.vue";
+import CustomerDialog from "@/components/CustomerDialog.vue";
 
 export default {
   props: ["customers"],
@@ -43,6 +43,6 @@ export default {
       console.log(index, row);
     }
   },
-  components: { CustomerMenu }
+  components: { CustomerDialog }
 };
 </script>
