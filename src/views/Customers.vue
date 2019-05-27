@@ -8,7 +8,12 @@
     </el-row>
     <el-button type="primary" @click="showDialog = true">Add New Customer</el-button>
 
-    <CustomerDialog :show="showDialog" @confirm="addNewCustomer"></CustomerDialog>
+    <CustomerDialog
+      :show="showDialog"
+      @addNewCustomer="addNewCustomer"
+      @hide="showDialog = false"
+      @close="showDialog= false"
+    ></CustomerDialog>
 
     <Custable :customers="customers"></Custable>
   </div>
@@ -31,8 +36,7 @@ export default {
     CustomerDialog
   },
   methods: {
-    addNewCustomer({ name, phone }) {
-      console.log(event);
+    addNewCustomer(obj) {
       customers.push(obj);
     }
   }

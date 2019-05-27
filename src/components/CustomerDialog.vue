@@ -32,11 +32,8 @@
       <el-date-picker v-model="DateOfBirth" type="date" placeholder="Date Of Birth"></el-date-picker>
       <br>
       <span slot="footer" class="dialog-footer">
-        <el-button @click="centerDialogVisible = false">Cancel</el-button>
-        <el-button
-          type="primary"
-          @click="addNewCustomer({firstName: CustomerName, lastName: CustomerLastName, custId: CustomeID, phoneNumb:PhoneNumber,dateOfbirth:DateOfBirth,email:Email})"
-        >Confirm</el-button>
+        <el-button @click="$emit('close')">Cancel</el-button>
+        <el-button type="primary" @click="save">Save</el-button>
       </span>
     </div>
   </el-dialog>
@@ -50,6 +47,7 @@
 
 <script>
 import { METHODS } from "http";
+import { close } from "fs";
 
 export default {
   props: ["show"],
@@ -64,7 +62,20 @@ export default {
       Email: ""
     };
   },
-  methods: {}
+  methods: {
+    save() {
+      this.$emit("addNewCustomer", {
+        firstName: this.CustomerName,
+        lastName: this.CustomerLastName,
+        custId: this.CustomeID,
+        phoneNumb: this.PhoneNumber,
+        dateOfbirth: this.DateOfBirth,
+        email: this.Email
+      });
+
+      this.$emit("hide");
+    }
+  }
 };
 </script>
 
