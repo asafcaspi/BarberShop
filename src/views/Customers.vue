@@ -9,13 +9,14 @@
     <el-button type="primary" @click="showDialog = true">Add New Customer</el-button>
 
     <CustomerDialog
+      :customer="customer"
       :show="showDialog"
       @addNewCustomer="addNewCustomer"
       @hide="showDialog = false"
       @close="showDialog= false"
     ></CustomerDialog>
 
-    <Custable :customers="customers" @edit="editCustomer($event)" @open="showDialog = true"></Custable>;
+    <Custable :customers="customers" @edit="editCustomer($event)"></Custable>;
   </div>
 </template>
 
@@ -27,6 +28,7 @@ import { customers } from "../data/data.js";
 export default {
   data() {
     return {
+      customer: {},
       customers,
       showDialog: false
     };
@@ -40,9 +42,10 @@ export default {
       customers.push(obj);
     },
     editCustomer(custId) {
-      const customer = customers.find(function(element, index) {
+      this.customer = customers.find(function(element, index) {
         return element.custId === custId;
       });
+      this.showDialog = true;
     }
   }
 };

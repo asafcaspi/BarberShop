@@ -1,7 +1,7 @@
 <template>
   <el-dialog title="Add New Customer" :visible.sync="show" width="30%" center>
     <div class="CustName">
-      <el-input placeholder="Customer Name" v-model="CustomerName"></el-input>
+      <el-input placeholder="Customer Name" v-model="editedCustomer.firstName"></el-input>
       <el-input placeholder="Customer LastName" v-model="CustomerLastName"></el-input>
 
       <el-input
@@ -51,9 +51,22 @@ import { close } from "fs";
 import Custable from "@/components/Custable.vue";
 
 export default {
-  props: ["show"],
+  props: ["customer", "show"],
+  watch: {
+    customer() {
+      console.log("WATCHED", JSON.stringify(this.customer));
+
+      this.editedCustomer = {
+        firstName: this.customer.firstName
+      };
+    }
+  },
   data() {
     return {
+      editedCustomer: {
+        id: "",
+        firstName: ""
+      },
       CustomerName: "",
       CustomeID: "",
       CustomerLastName: "",

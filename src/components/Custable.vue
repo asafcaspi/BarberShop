@@ -41,7 +41,6 @@ export default {
       // console.log(index, row);
       // showDialog = true;
       this.$emit("edit", row.custId);
-      this.$emit("open");
     },
     handleDelete(index, row) {
       console.log(index, row);
