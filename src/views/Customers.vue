@@ -15,7 +15,7 @@
       @close="showDialog= false"
     ></CustomerDialog>
 
-    <Custable :customers="customers" @edit="editCustomer($event)"></Custable>;
+    <Custable :customers="customers" @edit="editCustomer($event)" @open="showDialog = true"></Custable>;
   </div>
 </template>
 
@@ -39,9 +39,10 @@ export default {
     addNewCustomer(obj) {
       customers.push(obj);
     },
-    editCustomer(obj) {
-      console.log(obj);
-      customers.find;
+    editCustomer(custId) {
+      const customer = customers.find(function(element, index) {
+        return element.custId === custId;
+      });
     }
   }
 };
