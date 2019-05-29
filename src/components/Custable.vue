@@ -30,6 +30,7 @@ import CustomerDialog from "@/components/CustomerDialog.vue";
 
 export default {
   props: ["customers"],
+
   data() {
     return {
       search: ""
@@ -37,7 +38,9 @@ export default {
   },
   methods: {
     handleEdit(index, row) {
-      console.log(index, row);
+      // console.log(index, row);
+      // showDialog = true;
+      this.$emit("edit", row.custId);
     },
     handleDelete(index, row) {
       console.log(index, row);

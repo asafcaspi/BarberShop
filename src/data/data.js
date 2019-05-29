@@ -13,7 +13,7 @@ export const customers = [
     lastName: "Caspi",
     phoneNumb: "0585566288",
     email: "asda@asda.com",
-    custId: 646546565
+    custId: 646546561
   },
   {
     dateOfbirth: "2016-05-04",
@@ -21,7 +21,7 @@ export const customers = [
     lastName: "Caspi",
     phoneNumb: "0585566288",
     email: "asda@asda.com",
-    custId: 646546565
+    custId: 646546562
   },
   {
     dateOfbirth: "2016-05-01",
@@ -29,6 +29,6 @@ export const customers = [
     lastName: "Caspi",
     phoneNumb: "0585566288",
     email: "asda@asda.com",
-    custId: 646546565
+    custId: 646546563
   }
 ];

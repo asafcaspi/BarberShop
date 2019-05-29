@@ -48,6 +48,7 @@
 <script>
 import { METHODS } from "http";
 import { close } from "fs";
+import Custable from "@/components/Custable.vue";
 
 export default {
   props: ["show"],
