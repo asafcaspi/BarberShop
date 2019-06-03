@@ -23,7 +23,7 @@
       <el-input type="email" placeholder="Email" v-model="editedCustomer.email"></el-input>
       <el-switch
         style="display: block"
-        v-model="Gender"
+        v-model="editedCustomer.gender"
         active-color="#13ce66"
         inactive-color="#ff4949"
         active-text="Male"
@@ -69,28 +69,18 @@ export default {
   data() {
     return {
       editedCustomer: {
+        firstName: "",
         custId: "",
-        firstName: ""
-      },
-      CustomerName: "",
-      CustomeID: "",
-      CustomerLastName: "",
-      PhoneNumber: "",
-      DateOfBirth: "",
-      Gender: "",
-      Email: ""
+        lastName: "",
+        phoneNumb: "",
+        dateOfbirth: "",
+        email: ""
+      }
     };
   },
   methods: {
     save() {
-      this.$emit("saveCustomer", {
-        firstName: this.CustomerName,
-        lastName: this.CustomerLastName,
-        custId: this.CustomeID,
-        phoneNumb: this.PhoneNumber,
-        dateOfbirth: this.DateOfBirth,
-        email: this.Email
-      });
+      this.$emit("saveCustomer", this.editedCustomer);
 
       this.$emit("hide");
     }

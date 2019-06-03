@@ -6,7 +6,7 @@
       <el-button>lakohot UPDATE</el-button>
       <el-button type="primary">Primary</el-button>
     </el-row>
-    <el-button type="primary" @click="addNewCustomer()">Add New Customer</el-button>
+    <el-button type="primary" @click="addNewCustomer(obj)">Add New Customer</el-button>
 
     <CustomerDialog
       :customer="customer"
@@ -43,7 +43,13 @@ export default {
       this.showDialog = true;
     },
     saveCustomer(obj) {
-      customers.push(obj);
+      const found = customers.findIndex(function(element, index) {
+        return element.custId === obj.custId;
+      });
+
+      found === -1
+        ? this.customers.push(obj)
+        : this.customers.splice(found, 1, obj);
     },
     editCustomer(custId) {
       this.customer = customers.find(function(element, index) {
