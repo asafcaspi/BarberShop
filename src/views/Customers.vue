@@ -16,7 +16,7 @@
       @close="showDialog= false"
     ></CustomerDialog>
 
-    <Custable :customers="customers" @edit="editCustomer($event)"></Custable>;
+    <Custable :customers="customers" @edit="editCustomer($event)" @delete="deleteCust($event)"></Custable>;
   </div>
 </template>
 
@@ -56,6 +56,12 @@ export default {
         return element.custId === custId;
       });
       this.showDialog = true;
+    },
+    deleteCust(custId) {
+      const delCust = customers.findIndex(function(element, index) {
+        return element.custId === custId;
+      });
+      customers.splice(delCust, 1);
     }
   }
 };

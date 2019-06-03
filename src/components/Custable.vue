@@ -1,7 +1,7 @@
 <template>
   <div>
     <el-table
-      :data="customers.filter(data => !search || data.name.toLowerCase().includes(search.toLowerCase()))"
+      :data="customers.filter(data => !search || data.firstName.toLowerCase().includes(search.toLowerCase()))"
       style="width: 100%"
     >
       <el-table-column label="Date of birth" prop="dateOfbirth"></el-table-column>
@@ -43,7 +43,8 @@ export default {
       this.$emit("edit", row.custId);
     },
     handleDelete(index, row) {
-      console.log(index, row);
+      // console.log(index, row);
+      this.$emit("delete", row.custId);
     }
   },
   components: { CustomerDialog }
