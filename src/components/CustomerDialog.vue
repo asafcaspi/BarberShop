@@ -2,12 +2,12 @@
   <el-dialog title="Add New Customer" :visible.sync="show" width="30%" center>
     <div class="CustName">
       <el-input placeholder="Customer Name" v-model="editedCustomer.firstName"></el-input>
-      <el-input placeholder="Customer LastName" v-model="CustomerLastName"></el-input>
+      <el-input placeholder="Customer LastName" v-model="editedCustomer.CustomerLastName"></el-input>
 
       <el-input
         type="number"
         placeholder="CustomerID"
-        v-model="CustomeID"
+        v-model="editedCustomer.CustomeID"
         minlength="9"
         maxlength="10"
         show-word-limit
@@ -15,12 +15,12 @@
       <el-input
         type="number"
         placeholder="Phone Number"
-        v-model="PhoneNumber"
+        v-model="editedCustomer.PhoneNumber"
         minlength="9"
         maxlength="10"
         show-word-limit
       ></el-input>
-      <el-input type="email" placeholder="Email" v-model="Email"></el-input>
+      <el-input type="email" placeholder="Email" v-model="editedCustomer.Email"></el-input>
       <el-switch
         style="display: block"
         v-model="Gender"
@@ -29,7 +29,7 @@
         active-text="Male"
         inactive-text="Female"
       ></el-switch>
-      <el-date-picker v-model="DateOfBirth" type="date" placeholder="Date Of Birth"></el-date-picker>
+      <el-date-picker v-model="editedCustomer.DateOfBirth" type="date" placeholder="Date Of Birth"></el-date-picker>
       <br>
       <span slot="footer" class="dialog-footer">
         <el-button @click="$emit('close')">Cancel</el-button>
@@ -57,7 +57,14 @@ export default {
       console.log("WATCHED", JSON.stringify(this.customer));
 
       this.editedCustomer = {
-        firstName: this.customer.firstName
+        firstName: this.customer.firstName,
+        CustomerName: this.customer.CustomerName,
+        CustomeID: this.customer.CustomeID,
+        CustomerLastName: this.customer.CustomerLastName,
+        PhoneNumber: this.customer.PhoneNumber,
+        DateOfBirth: this.customer.DateOfBirth,
+        Gender: this.customer.Gender,
+        Email: this.customer.Email
       };
     }
   },
