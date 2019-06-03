@@ -58,13 +58,11 @@ export default {
 
       this.editedCustomer = {
         firstName: this.customer.firstName,
-        CustomerName: this.customer.CustomerName,
-        CustomeID: this.customer.CustomeID,
-        CustomerLastName: this.customer.CustomerLastName,
-        PhoneNumber: this.customer.PhoneNumber,
-        DateOfBirth: this.customer.DateOfBirth,
-        Gender: this.customer.Gender,
-        Email: this.customer.Email
+        custId: this.customer.custId,
+        lastName: this.customer.lastName,
+        phoneNumb: this.customer.phoneNumb,
+        dateOfbirth: this.customer.dateOfbirth,
+        email: this.customer.email
       };
     }
   },
