@@ -2,12 +2,12 @@
   <el-dialog title="Add New Customer" :visible.sync="show" width="30%" center>
     <div class="CustName">
       <el-input placeholder="Customer Name" v-model="editedCustomer.firstName"></el-input>
-      <el-input placeholder="Customer LastName" v-model="editedCustomer.CustomerLastName"></el-input>
+      <el-input placeholder="Customer LastName" v-model="editedCustomer.lastName"></el-input>
 
       <el-input
         type="number"
         placeholder="CustomerID"
-        v-model="editedCustomer.CustomeID"
+        v-model="editedCustomer.custId"
         minlength="9"
         maxlength="10"
         show-word-limit
@@ -15,12 +15,12 @@
       <el-input
         type="number"
         placeholder="Phone Number"
-        v-model="editedCustomer.PhoneNumber"
+        v-model="editedCustomer.phoneNumb"
         minlength="9"
         maxlength="10"
         show-word-limit
       ></el-input>
-      <el-input type="email" placeholder="Email" v-model="editedCustomer.Email"></el-input>
+      <el-input type="email" placeholder="Email" v-model="editedCustomer.email"></el-input>
       <el-switch
         style="display: block"
         v-model="Gender"
@@ -29,7 +29,7 @@
         active-text="Male"
         inactive-text="Female"
       ></el-switch>
-      <el-date-picker v-model="editedCustomer.DateOfBirth" type="date" placeholder="Date Of Birth"></el-date-picker>
+      <el-date-picker v-model="editedCustomer.dateOfbirth" type="date" placeholder="Date Of Birth"></el-date-picker>
       <br>
       <span slot="footer" class="dialog-footer">
         <el-button @click="$emit('close')">Cancel</el-button>
@@ -69,7 +69,7 @@ export default {
   data() {
     return {
       editedCustomer: {
-        id: "",
+        custId: "",
         firstName: ""
       },
       CustomerName: "",
@@ -83,7 +83,7 @@ export default {
   },
   methods: {
     save() {
-      this.$emit("addNewCustomer", {
+      this.$emit("saveCustomer", {
         firstName: this.CustomerName,
         lastName: this.CustomerLastName,
         custId: this.CustomeID,

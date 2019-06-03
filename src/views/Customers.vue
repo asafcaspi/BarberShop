@@ -6,12 +6,12 @@
       <el-button>lakohot UPDATE</el-button>
       <el-button type="primary">Primary</el-button>
     </el-row>
-    <el-button type="primary" @click="showDialog = true">Add New Customer</el-button>
+    <el-button type="primary" @click="addNewCustomer()">Add New Customer</el-button>
 
     <CustomerDialog
       :customer="customer"
       :show="showDialog"
-      @addNewCustomer="addNewCustomer"
+      @saveCustomer="saveCustomer"
       @hide="showDialog = false"
       @close="showDialog= false"
     ></CustomerDialog>
@@ -38,7 +38,11 @@ export default {
     CustomerDialog
   },
   methods: {
-    addNewCustomer(obj) {
+    addNewCustomer() {
+      this.customer = {};
+      this.showDialog = true;
+    },
+    saveCustomer(obj) {
       customers.push(obj);
     },
     editCustomer(custId) {
